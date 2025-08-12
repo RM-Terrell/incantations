@@ -8,7 +8,10 @@ function get_last_commit_changes() {
     git show $last_commit_hash -- $file_path
 }
 
-# Function to copy the output of the last command to the clipboard
+# Function to copy the current line to the clipboard
+# Example:
+# With the console showing some command like "git commit -m 'really long annoying message you dont want to retype'"
+# Hit control + y before hitting enter to copy all of it to clipboard
 cmd_to_clip () {
   if [[ "$OSTYPE" == "darwin"* ]]; then
     # pb copy is a macOS specific command
