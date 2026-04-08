@@ -1,6 +1,10 @@
 #!/bin/bash
 
+# --- ALIASES ---
+alias disable_mac_stupidity="sudo spctl --master-disable ; open 'x-apple.systempreferences:com.apple.preference.security'"
 
+
+# --- FUNCTIONS & SCRIPTS ---
 function get_last_commit_changes() {
     local file_path=$1
     local last_commit_hash=$(git log -1 --pretty=format:"%H" -- $file_path)
@@ -18,7 +22,7 @@ cmd_to_clip () {
     echo -n $BUFFER | pbcopy
   else
     # assuming if not macOS, it's linux
-    # wl-copy is a linux specific command (weyland). 
+    # wl-copy is a linux specific command (weyland).
     wl-copy <<< $BUFFER
   fi
 }
